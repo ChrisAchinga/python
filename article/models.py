@@ -58,9 +58,9 @@ class Article(models.Model):
             url = ''
         return url
 
-    def get_absolute_url(self):
-        return reverse('article', args=(str(self.id)))
-        # return reverse('home')
+    # def get_absolute_url(self):
+    #     # return reverse('article', args=(str(self.id)))
+    #     return reverse('home')
 
 class News(models.Model):
     title = models.CharField('News Title', max_length=100, null=False)
