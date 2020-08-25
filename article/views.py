@@ -20,15 +20,20 @@ class NewsView(DetailView):
     model = News
     template_name = 'article/news.html'
 
-class CategoryView(DetailView):
-    model = Category
-    template_name = 'article/category.html'
+# class CategoryView(DetailView):
+#     model = Category
+#     template_name = 'article/category.html'
 
 # Forms
 # Create Article
 class CreateArticle(CreateView):
     model = Article
     template_name = 'article/add_article.html'
+    fields = '__all__'
+
+class CreateNews(CreateView):
+    model = News
+    template_name = 'article/add_news.html'
     fields = '__all__'
 
 # Function Based Views
@@ -40,6 +45,11 @@ def Landing(request):
     context = {'article':article, 'category':category, 'news':news}
     return render(request, 'article/index.html', context)
 
+def Magazine(request):
+    return render(request, 'article/magazine.html')
+
+def CategoryView(request):
+    return render(request, 'article/categories.html')
 
 # Forms
 # login form
